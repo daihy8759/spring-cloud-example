@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: nacos-consumer-feign
+server:
+  port: 9092
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
