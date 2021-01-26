@@ -44,4 +44,19 @@ public class NacosProviderController {
     }
     return "fail";
   }
+
+  @PostMapping("batchUploadFile")
+  public String batchUploadFile(MultipartFile[] files) throws IOException {
+    if (files != null) {
+      int i = 0;
+      for (MultipartFile file : files) {
+        IOUtils.copy(file.getInputStream(), new FileOutputStream(
+            "/users/daihy/downloads/uploadFile" + i + "." + FilenameUtils
+                .getExtension(file.getOriginalFilename())));
+        i++;
+      }
+      return "ok";
+    }
+    return "fail";
+  }
 }

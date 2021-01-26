@@ -17,4 +17,7 @@ public interface FeignService {
   @PostMapping(value = "/uploadFile", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
   String uploadFile(@RequestPart("file") MultipartFile file);
 
+  @PostMapping(value = "/batchUploadFile", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+  String batchUploadFile(@RequestPart("files") MultipartFile[] files);
+
 }
